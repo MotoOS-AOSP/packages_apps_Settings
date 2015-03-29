@@ -292,4 +292,7 @@
 
     <!-- Old Settings UI -->
     <string name="usercard_summary">Current active user, tap for more information</string>
+
+    <!-- Screenshot shutter -->
+    <string name="screenshot_shutter_sound_title">Screenshot sound</string>
 </resources>
