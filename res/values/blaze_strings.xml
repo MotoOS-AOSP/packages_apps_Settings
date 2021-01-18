@@ -316,4 +316,8 @@
 
     <!-- Wallpaper Picker-->
     <string name="wallpaper_picker_not_found">Wallpaper picker app not found</string>
+
+    <!-- FastCharge feature -->
+    <string name="fast_charging_title">Fast charging</string>
+    <string name="fast_charging_summary">Disable to reduce the heat produced by the device while charging or to extend the lifespan of the battery</string>
 </resources>
