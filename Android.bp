@@ -122,6 +122,7 @@ android_library {
         "kotlinx-coroutines-core",
         "kotlinx-coroutines-android",
         "expandable-bottombar",
+        "glide",
         "androidx.navigation_navigation-common-ktx",
         "androidx.navigation_navigation-fragment-ktx",
         "androidx.navigation_navigation-runtime-ktx",
@@ -189,4 +190,9 @@ android_library_import {
     name: "expandable-bottombar",
     aars: ["libs/lib-expandablebottombar-release.aar"],
     sdk_version: "current",
+}
+
+android_library_import {
+    name: "glide",
+    aars: ["libs/glide-4.9.0.aar"],
 }
