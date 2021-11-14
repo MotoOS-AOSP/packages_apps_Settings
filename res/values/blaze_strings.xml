@@ -47,4 +47,9 @@
     <string name="version">Version</string>
     <string name="edit">Edit</string>
     <string name="device_name">Device name</string>
+
+    <!-- Preference and settings suggestion title text for screen off UDFPS -->
+    <string name="ambient_display_screen_off_udfps_title">Long press on fingerprint sensor to unlock device</string>
+    <!-- Summary text for screen off UDFPS -->
+    <string name="ambient_display_screen_off_udfps_summary">To wake up your screen and unlock, long press your under-display fingerprint sensor</string>
 </resources>
