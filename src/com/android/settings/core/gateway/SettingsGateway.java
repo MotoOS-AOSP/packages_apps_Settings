@@ -202,6 +202,8 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.blaze.house.BlazeHouse;
 
+import con.android.settings.wifi.tether.WifiTetherClientManager;
+
 public class SettingsGateway {
 
     /**
@@ -392,6 +394,7 @@ public class SettingsGateway {
             BlazeHouse.class.getName(),
             ResetNetwork.class.getName(),
             VibrationIntensitySettingsFragment.class.getName(),
+            WifiTetherClientManager.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
