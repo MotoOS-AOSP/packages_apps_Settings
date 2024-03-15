@@ -57,6 +57,8 @@ import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.crdroid.settings.utils.PreferenceLayoutUtil;
+
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements SplitLayoutListener,
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
@@ -228,6 +230,10 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             Drawable icon = preference.getIcon();
             if (icon != null) {
                 icon.setTint(tintColor);
+            }
+            String preferenceKey = preference.getKey();
+            if (preferenceKey != null) {
+                PreferenceLayoutUtil.setUpPreferenceLayout(preference, getContext());
             }
         });
     }
