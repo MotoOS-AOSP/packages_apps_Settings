@@ -289,4 +289,7 @@
     <string name="pattern_da_da" translatable="false">da-da</string>
     <string name="pattern_da_da_dzzz" translatable="false">da-da-dzzz</string>
     <string name="pattern_da_dzzz_da" translatable="false">da-dzzz-da</string>
+
+    <!-- Old Settings UI -->
+    <string name="usercard_summary">Current active user, tap for more information</string>
 </resources>
