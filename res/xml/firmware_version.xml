@@ -13,7 +13,7 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
+-->
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,88 +21,111 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-    <!-- Device Name -->
+    <!-- Device Information Category -->
+    <PreferenceCategory
+        android:key="device_info_category"
+        android:title="@string/device_info_category_title"
+        android:selectable="false">
+
+        <!-- Device Name -->
+        <Preference
+            android:key="about_device_name"
+            android:title="@string/about_device_name"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
+
+        <!-- Blaze version -->
+        <Preference
+            android:key="blaze_version"
+            android:title="@string/blaze_version"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoVersionPreferenceController"/>
+
+        <!-- Android version -->
+        <Preference
+            android:key="os_firmware_version"
+            android:title="@string/firmware_version"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:searchable="false"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+
+        <!-- Blaze Maintainer -->
+        <Preference
+            android:key="blaze_maintainer"
+            android:title="@string/blaze_maintainer"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoMaintainerPreferenceController"/>
+        
+    </PreferenceCategory>
+
+    <!-- Firmware Security Category -->
+    <PreferenceCategory
+        android:key="firmware_security_category"
+        android:title="@string/firmware_security_category_title"
+        android:selectable="false">
+
+        <!-- Security patch -->
+        <Preference
+            android:key="security_key"
+            android:title="@string/security_patch"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
+
+    </PreferenceCategory>
+
+    <!-- Firmware General Category -->
+    <PreferenceCategory
+        android:key="firmware_general_category"
+        android:title="@string/firmware_general_category_title"
+        android:selectable="false">
+
+        <!-- Baseband -->
+        <Preference
+            android:key="base_band"
+            android:title="@string/baseband_version"
+            android:summary="@string/summary_placeholder"
+            android:selectable="false"/>
+
+        <!-- Build date -->
+        <Preference 
+            android:key="build_date"
+            android:title="@string/build_date"
+            android:summary="@string/build_date_default"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"/>
+
+        <!-- Kernel -->
+        <Preference
+            android:key="kernel_version"
+            android:title="@string/kernel_version"
+            android:summary="@string/summary_placeholder"
+            android:selectable="false"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
+
+        <!-- SELinux -->
+        <Preference
+            android:key="selinux_status"
+            android:title="@string/selinux_status"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="false"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.SelinuxStatusPreferenceController"/>
+
+    </PreferenceCategory>
+
+    <!-- Commented Section: Build -->
+    <!--
     <Preference
-        android:key="about_device_name"
-        android:title="@string/about_device_name"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        android:selectable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
-
-    <!-- Blaze version -->
-    <Preference
-         android:key="blaze_version"
-         android:title="@string/blaze_version"
-         android:summary="@string/summary_placeholder"
-         settings:enableCopying="true"
-         settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoVersionPreferenceController"/>
-
-    <!-- Android version -->
-    <Preference
-        android:key="os_firmware_version"
-        android:title="@string/firmware_version"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:searchable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
-
-    <!-- Blaze Maintainer  -->
-    <Preference
-        android:key="blaze_maintainer"
-        android:title="@string/blaze_maintainer"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoMaintainerPreferenceController"/>
-
-    <!-- Security patch -->
-    <Preference
-        android:key="security_key"
-        android:title="@string/security_patch"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
-
-    <!-- Baseband -->
-    <Preference
-        android:key="base_band"
-        android:title="@string/baseband_version"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
-
-    <!-- Build date -->
-    <Preference 
-        android:key="build_date"
-        android:title="@string/build_date"
-        android:summary="@string/build_date_default"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"/>
-
-    <!-- Kernel -->
-    <Preference
-        android:key="kernel_version"
-        android:title="@string/kernel_version"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
-
-    <!-- SELinux -->
-    <Preference
-        android:key="selinux_status"
-        android:title="@string/selinux_status"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SelinuxStatusPreferenceController"/>
-
-    <!-- Build -->
-    <!--Preference
         android:key="os_build_number"
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
         android:selectable="false"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/> -->
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/>
+    -->
 
 </PreferenceScreen>
