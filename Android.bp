@@ -55,6 +55,7 @@ android_library {
 	   "src/**/*.kt",
 	   "src-blaze/**/*.java",
 	   "BlazeHouse/src/**/*.java",
+	   "BlazeHouse/src/**/*.kt",
     ],
 
     exclude_srcs: [
