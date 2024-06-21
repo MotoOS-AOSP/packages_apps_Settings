@@ -18,7 +18,9 @@ package com.android.settings.display;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -58,7 +60,14 @@ public class CustomizableLockScreenQuickAffordancesPreferenceController extends
                     intent.setPackage(packageName);
                 }
                 intent.putExtra("destination", "quick_affordances");
-                mContext.startActivity(intent);
+
+                // Check if there's an activity to handle the intent
+                if (intent.resolveActivity(mContext.getPackageManager()) != null) {
+                    mContext.startActivity(intent);
+                } else {
+                    // Handle the error gracefully, e.g., show a toast
+                    Toast.makeText(mContext, R.string.wallpaper_picker_not_found, Toast.LENGTH_SHORT).show();
+                }
                 return true;
             });
             refreshSummary(preference);
