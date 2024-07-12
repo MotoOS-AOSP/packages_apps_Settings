@@ -60,6 +60,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+
+import com.android.internal.telephony.IccCardConstants;
+import com.android.internal.telephony.TelephonyIntents;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
+import com.android.settings.deviceinfo.aboutphone.AkihabaraDeviceInfoPreferenceController;
+
+
 @SearchIndexable
 public class MyDeviceInfoFragment extends DashboardFragment
         implements DeviceNamePreferenceController.DeviceNamePreferenceHost {
@@ -127,6 +139,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new FeedbackPreferenceController(fragment, context));
         controllers.add(new FccEquipmentIdPreferenceController(context));
         controllers.add(new UptimePreferenceController(context, lifecycle));
+        controllers.add(new AkihabaraDeviceInfoPreferenceController(context));
 
         Consumer<String> imeiInfoList = imeiKey -> {
             ImeiInfoPreferenceController imeiRecord =
