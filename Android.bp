@@ -70,7 +70,7 @@ android_library {
 	"res-blaze",
         "res-export", // for external usage
         "res-product",
-	"TweakHouse/res",
+	    "TweakHouse/res",
     ],
     
     aaptflags: ["--extra-packages com.tweak.house",
