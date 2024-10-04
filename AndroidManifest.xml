@@ -5285,7 +5285,7 @@
                 <action android:name="com.android.settings.action.SETTINGS"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.blaze.house.BlazeHouse"/>
+                       android:value="com.tweak.house.TweakHouse"/>
             <meta-data android:name="com.android.settings.summary"
                        android:resource="@string/build_tweaks_summary_title"/>
         </activity>

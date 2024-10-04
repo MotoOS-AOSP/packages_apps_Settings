@@ -204,7 +204,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
-import com.blaze.house.BlazeHouse;
+import com.tweak.house.TweakHouse;
 
 public class SettingsGateway {
 
@@ -399,7 +399,7 @@ public class SettingsGateway {
             AccessibilityHearingAidsFragment.class.getName(),
             HearingDevicePairingFragment.class.getName(),
             // Project Blaze additions
-            BlazeHouse.class.getName(),
+            TweakHouse.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -447,6 +447,6 @@ public class SettingsGateway {
             Settings.MemtagPageActivity.class.getName(),
             Settings.NavigationModeSettingsActivity.class.getName(),
              // Project Blaze additions
-            Settings.BlazeHouseSettingsActivity.class.getName(),
+            Settings.TweakHouseSettingsActivity.class.getName(),
     };
 }

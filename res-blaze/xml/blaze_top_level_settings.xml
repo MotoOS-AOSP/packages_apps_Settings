@@ -33,7 +33,7 @@
         android:summary="@string/build_tweaks_summary_title"
         android:icon="@drawable/ic_settings_blaze"
         android:order="-204"
-        android:fragment="com.blaze.house.BlazeHouse"
+        android:fragment="com.tweak.house.TweakHouse"
 	settings:layout="@layout/blaze_dashboard_preference_bottom"
         settings:controller="com.blaze.house.TopLevelExtensionsEntryPreferenceController" />
 

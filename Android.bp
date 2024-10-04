@@ -56,8 +56,8 @@ android_library {
         "src/**/*.java",
         "src/**/*.kt",
 	"src-blaze/**/*.java",
-	"BlazeHouse/src/**/*.java",
-	"BlazeHouse/src/**/*.kt",
+	"TweakHouse/src/**/*.java",
+	"TweakHouse/src/**/*.kt",
     ],
 
     exclude_srcs: [
@@ -70,10 +70,10 @@ android_library {
 	"res-blaze",
         "res-export", // for external usage
         "res-product",
-	"BlazeHouse/res",
+	"TweakHouse/res",
     ],
     
-    aaptflags: ["--extra-packages com.blaze.house",
+    aaptflags: ["--extra-packages com.tweak.house",
                 "--extra-packages github.com.st235.lib_expandablebottombar",
     ],
 
