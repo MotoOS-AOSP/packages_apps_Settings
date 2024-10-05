@@ -5275,7 +5275,7 @@
 
         <!-- This is the longest AndroidManifest.xml ever. -->
         
-        <!-- Project Blaze additions -->
+        <!-- MotoOS additions -->
         <activity android:name=".Settings$BlazeHouseSettingsActivity"
                   android:label="@string/blazehouse_title"
                   android:icon="@drawable/ic_homepage_blaze"

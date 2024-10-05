@@ -25,8 +25,8 @@ class AboutDevice : FrameLayout {
     init {
         inflate(context, R.layout.device_info, this)
         // ROM Version
-        val version = SystemProperties.get("org.blaze.version")
-        val type = SystemProperties.get("ro.blaze.buildtype")
+        val version = SystemProperties.get("org.moto.version")
+        val type = SystemProperties.get("ro.moto.buildtype")
 
         findViewById<TextView>(R.id.romVersion)?.text = (if (type == "OFFICIAL") {
             version + " " + context.getString(R.string.about_device_version_type_official)

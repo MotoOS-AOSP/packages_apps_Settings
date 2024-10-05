@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 PixelPlusUI
+ * Copyright (C) 2019 MotoOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,27 +20,29 @@ import android.content.Context;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 
-import androidx.preference.Preference;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 
-public class BlazeMaintainerPreferenceController extends BasePreferenceController {
+public class MotoVersionPreferenceController extends BasePreferenceController {
 
-    private static final String TAG = "BlazeMaintainerPreferenceController";
-    private static final String ROM_PROPERTY = "ro.blaze.maintainer";
+    @VisibleForTesting
+    static final String MOTO_VERSION_PROPERTY = "org.moto.version";
 
-    public BlazeMaintainerPreferenceController(Context context, String key) {
-        super(context, key);
+    public MotoVersionPreferenceController(Context context, String preferenceKey) {
+        super(context, preferenceKey);
     }
 
+    @Override
     public int getAvailabilityStatus() {
-        return AVAILABLE;
+        return !TextUtils.isEmpty(SystemProperties.get(MOTO_VERSION_PROPERTY)) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
+    @Override
     public CharSequence getSummary() {
-        String rom = SystemProperties.get(ROM_PROPERTY,
-                this.mContext.getString(R.string.device_info_default));
-        return rom;
+        return SystemProperties.get(MOTO_VERSION_PROPERTY,
+                mContext.getString(R.string.device_info_default));
     }
 }

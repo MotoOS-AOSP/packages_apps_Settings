@@ -55,7 +55,7 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
-	"src-blaze/**/*.java",
+	"src-moto/**/*.java",
 	"TweakHouse/src/**/*.java",
 	"TweakHouse/src/**/*.kt",
     ],
