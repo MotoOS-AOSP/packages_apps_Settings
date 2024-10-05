@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.Tweak.house;
+package com.tweak.house;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
