@@ -18,9 +18,9 @@
 
     <!-- About phone screen, Project Blaze version -->
     <string name="about_device_name">Device</string>
-    <string name="blaze_version">Blaze version</string>
+    <string name="blaze_version">MotoOS version</string>
     <string name="blaze_version_default">Unknown</string>
-    <string name="keywords_blaze_version">ProjectBlaze version, blaze version</string>
+    <string name="keywords_blaze_version">MotoOS AOSP version, MotoOS version</string>
 
     <!-- About phone screen, build date -->
     <string name="build_date">Build date</string>
