@@ -36,7 +36,7 @@
          android:title="@string/blaze_version"
          android:summary="@string/summary_placeholder"
          settings:enableCopying="true"
-         settings:controller="com.android.settings.deviceinfo.firmwareversion.BlazeVersionPreferenceController"/>
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoVersionPreferenceController"/>
 
     <!-- Android version -->
     <Preference
@@ -53,7 +53,7 @@
         android:title="@string/blaze_maintainer"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BlazeMaintainerPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.MotoMaintainerPreferenceController"/>
 
     <!-- Security patch -->
     <Preference
