@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2018 The Android Open Source Project
- *               2022 CorvusROM
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +22,6 @@ import static android.provider.Settings.EXTRA_SETTINGS_EMBEDDED_DEEP_LINK_INTENT
 
 import static com.android.settings.SettingsActivity.EXTRA_USER_HANDLE;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.animation.LayoutTransition;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
@@ -56,10 +53,6 @@ import android.widget.Toolbar;
 import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
-
-import androidx.viewpager.widget.ViewPager;
-import com.google.android.material.tabs.TabLayout;
-
 import androidx.core.graphics.Insets;
 import androidx.core.util.Consumer;
 import androidx.core.view.ViewCompat;
@@ -69,14 +62,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.window.embedding.SplitController;
 import androidx.window.embedding.SplitInfo;
 import androidx.window.embedding.ActivityEmbeddingController;
 import androidx.window.embedding.SplitRule;
 import androidx.window.java.embedding.SplitControllerCallbackAdapter;
-
-import com.android.settings.corvus.CorvusSettings;
 
 import com.android.settings.R;
 import com.android.settings.Settings;
@@ -104,8 +94,6 @@ import java.util.*;
 import java.lang.*;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-
-import java.util.ArrayList;
 
 /** Settings homepage activity */
 public class SettingsHomepageActivity extends FragmentActivity implements
@@ -138,13 +126,6 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     private ActivityEmbeddingController mActivityEmbeddingController;
     private boolean mIsEmbeddingActivityEnabled;
     private boolean mIsTwoPane;
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
-    private int[] tabIcons = {
-            R.drawable.tab_ic_device,
-            R.drawable.tab_ic_corvus
-    };
-    
     // A regular layout shows icons on homepage, whereas a simplified layout doesn't.
     private boolean mIsRegularLayout = true;
     CollapsingToolbarLayout collapsing_toolbar;
@@ -292,7 +273,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         updateAppBarMinHeight();
         initHomepageContainer();
-        setupTabIcons();
+
         Context context = getApplicationContext();
         mUserManager = context.getSystemService(UserManager.class);
 
@@ -315,6 +296,8 @@ public class SettingsHomepageActivity extends FragmentActivity implements
             showSuggestionFragment(scrollNeeded);
             if (FeatureFlagUtils.isEnabled(this, FeatureFlags.CONTEXTUAL_HOME)) {
                 showFragment(() -> new ContextualCardsFragment(), R.id.contextual_cards_content);
+                ((FrameLayout) findViewById(R.id.main_content))
+                        .getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             }
         }
 
@@ -892,27 +875,16 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     }
 
     private void reloadHighlightMenuKey() {
-        mMainFragment.getArguments().putStr
-        ing(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY,
+        mMainFragment.getArguments().putString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY,
                 getHighlightMenuKey());
         mMainFragment.reloadHighlightMenuKey();
     }
-    
-    private void setupTabIcons() {
-        mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
-    }
 
     private void initHomepageContainer() {
-        mTabLayout = findViewById(R.id.tab_layout);
-        mViewPager = findViewById(R.id.viewPager);
-
-        mTabLayout.setupWithViewPager(mViewPager);
-        // setupTabTextColor(mTabLayout);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPagerAdapter.addFragment(new TopLevelSettings(), "Device Settings");
-        viewPagerAdapter.addFragment(new CorvusSettings(), "Corvus Settings");
-        mViewPager.setAdapter(viewPagerAdapter);
+        final View view = findViewById(R.id.homepage_container);
+        // Prevent inner RecyclerView gets focus and invokes scrolling.
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
     }
 
     private void updateHomepageAppBar() {
@@ -985,9 +957,11 @@ public class SettingsHomepageActivity extends FragmentActivity implements
             }
         }
     }
-    // Clase SplitInfoCallback necesaria para AE splitting
+
+    /** The callback invoked while AE splitting. */
     private static class SplitInfoCallback implements Consumer<List<SplitInfo>> {
         private final SettingsHomepageActivity mActivity;
+
         private boolean mIsSplitUpdatedUI = false;
 
         SplitInfoCallback(SettingsHomepageActivity activity) {
@@ -1004,37 +978,10 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
     }
 
-    // Clase ViewPagerAdapter necesaria para el diseño de pestañas
-    static class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        private final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-        private final ArrayList<String> fragmentTitle = new ArrayList<>();
-
-        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
+    private String getOwnerName(){
+        final UserManager mUserManager = getSystemService(UserManager.class);
+        final UserInfo userInfo = com.android.settings.Utils.getExistingUser(mUserManager,
+                    UserHandle.of(UserHandle.myUserId()));
+        return userInfo.name != null ? userInfo.name : getString(R.string.default_user);
         }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return fragmentArrayList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragmentArrayList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title){
-            fragmentArrayList.add(fragment);
-            fragmentTitle.add(title);
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragmentTitle.get(position);
-        }
-    }
-
 }
