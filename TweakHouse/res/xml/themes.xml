@@ -9,48 +9,48 @@
         android:key="android.theme.customization.fonts"
         android:title="@string/theme_customization_font_title"
         android:summary="@string/theme_customization_font_summary"
-        android:fragment="com.Tweak.house.fragments.FontsPicker"/>
+        android:fragment="com.tweak.house.fragments.FontsPicker"/>
 
     <Preference
         android:key="android.theme.customization.icon_pack"
         android:title="@string/theme_customization_icon_pack_title"
         android:summary="@string/theme_customization_icon_pack_summary"
-        android:fragment="com.Tweak.house.fragments.StatusbarIcons"/>
+        android:fragment="com.tweak.house.fragments.StatusbarIcons"/>
             
     <Preference
         android:key="android.theme.customization.signal_icon"
         android:title="@string/theme_customization_signal_icon_title"
         android:summary="@string/theme_customization_signal_icon_summary"
-        android:fragment="com.Tweak.house.fragments.SignalIcons"/>
+        android:fragment="com.tweak.house.fragments.SignalIcons"/>
 
     <Preference
         android:key="android.theme.customization.wifi_icon"
         android:title="@string/theme_customization_wifi_icon_title"
         android:summary="@string/theme_customization_wifi_icon_summary"
-        android:fragment="com.Tweak.house.fragments.WifiIcons"/>      
+        android:fragment="com.tweak.house.fragments.WifiIcons"/>      
 
     <Preference
         android:key="android.theme.customization.adaptive_icon_shape"
         android:title="@string/theme_customization_icon_shape_title"
         android:summary="@string/theme_customization_icon_shape_summary"
-        android:fragment="com.Tweak.house.fragments.IconShapes"/>     
+        android:fragment="com.tweak.house.fragments.IconShapes"/>     
 
     <Preference
         android:key="android.theme.customization.brightness_slider"
         android:title="@string/theme_customization_brightness_slider_title"
         android:summary="@string/theme_customization_brightness_slider_summary"
-        android:fragment="com.Tweak.house.fragments.BrightnessSlider"/>
+        android:fragment="com.tweak.house.fragments.BrightnessSlider"/>
 
     <Preference
         android:key="android.theme.customization.sb_data"
         android:title="@string/theme_customization_data_title"
         android:summary="@string/theme_customization_data_summary"
-        android:fragment="com.Tweak.house.fragments.DataStyles"/>
+        android:fragment="com.tweak.house.fragments.DataStyles"/>
 
     <Preference
         android:key="android.theme.customization.navbar"
         android:title="@string/theme_customization_navbar_title"
         android:summary="@string/theme_customization_navbar_summary"
-        android:fragment="com.Tweak.house.fragments.NavbarStyles" />
+        android:fragment="com.tweak.house.fragments.NavbarStyles" />
 
 </PreferenceScreen>
