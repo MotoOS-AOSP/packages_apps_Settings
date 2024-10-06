@@ -118,7 +118,7 @@
             settings:searchable="false"
             settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
 
-        <com.blaze.house.preferences.SecureSettingSwitchPreference
+        <com.tweak.house.preferences.SecureSettingSwitchPreference
             android:key="screen_off_udfps_enabled"
             android:title="@string/ambient_display_screen_off_udfps_title"
             android:summary="@string/ambient_display_screen_off_udfps_summary"

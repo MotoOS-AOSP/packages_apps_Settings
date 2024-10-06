@@ -40,7 +40,7 @@
     <PreferenceCategory
         android:title="@string/navbar_gesture_handle_category">
 
-        <com.blaze.house.preferences.SecureSettingSwitchPreference
+        <com.tweak.house.preferences.SecureSettingSwitchPreference
             android:key="back_gesture_arrow"
             android:title="@string/back_gesture_arrow_title"
             android:summary="@string/back_gesture_arrow_summary"

@@ -35,7 +35,7 @@
         android:order="-204"
         android:fragment="com.tweak.house.TweakHouse"
 	settings:layout="@layout/blaze_dashboard_preference_bottom"
-        settings:controller="com.blaze.house.TopLevelExtensionsEntryPreferenceController" />
+        settings:controller="com.tweak.house.TopLevelExtensionsEntryPreferenceController" />
 
     <PreferenceCategory
         android:order="-200"
