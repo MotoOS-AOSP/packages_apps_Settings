@@ -23,12 +23,6 @@
         android:key="accessibility_autoclick_intro"
         android:title="@string/accessibility_autoclick_intro_text"/>
 
-    <com.android.settingslib.widget.IllustrationPreference
-        android:key="accessibility_autoclick_banner"
-        android:selectable="false"
-        settings:searchable="false"
-        settings:lottie_rawRes="@drawable/accessibility_dwell"/>
-
     <com.android.settingslib.widget.SelectorWithWidgetPreference
         android:key="accessibility_control_autoclick_default"
         android:title="@string/accessibility_autoclick_default_title"
